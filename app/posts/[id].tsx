@@ -1,13 +1,22 @@
 import { StyleSheet } from 'react-native';
-
+import { styled } from 'nativewind';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Text, View } from '../../components/Themed';
 
-export default function TalkScreen() {
+const StyledText = styled(Text);
+
+export default function PostDetailScreen() {
+  const { id } = useLocalSearchParams();
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Chat Rooms</Text>
+      <Text style={styles.title}>Post Detail</Text>
       <View>
-        <Text>Hello</Text>
+        <Text>
+          id is
+          <Text className='font-bold text-pink-400'> `{id}`</Text>
+        </Text>
       </View>
     </View>
   );

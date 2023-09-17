@@ -15,7 +15,7 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
-export default function TabLayout() {
+export default function PostsLayout() {
   const colorScheme = useColorScheme();
 
   return (
@@ -46,19 +46,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name='talk'
+        name='[id]'
         options={{
           title: 'Talk',
           tabBarIcon: ({ color }) => (
             <Ionicons name='chatbubble' color={color} size={28} />
           ),
-        }}
-      />
-      <Tabs.Screen
-        name='setting'
-        options={{
-          title: 'Setting',
-          tabBarIcon: ({ color }) => <TabBarIcon name='gear' color={color} />,
         }}
       />
     </Tabs>

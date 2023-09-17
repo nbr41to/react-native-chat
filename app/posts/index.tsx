@@ -1,14 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
+import { useRouter } from 'expo-router';
 
-export default function TabTwoScreen() {
+export default function PostsScreen() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+      <Text style={styles.title}>Post List</Text>
+      <View>
+        <Button title='Go to Post' onPress={() => router.push('/posts/123')} />
+      </View>
     </View>
   );
 }

@@ -1,31 +1,23 @@
-import { StyleSheet } from 'react-native';
+import { styled } from 'nativewind';
+import { Text, View, Button, Pressable } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+const StyledButton = styled(Button);
 
-export default function TabTwoScreen() {
+export default function SettingScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+    <View className='flex items-center justify-center h-full gap-y-8'>
+      <Text className='text-xl font-bold dark:text-white'>Setting Page</Text>
+      <StyledButton
+        title='Button'
+        className='bg-slate-200 rounded block mt-8'
+        onPress={() => console.log('Pressed Button')}
+      />
+      <Pressable
+        className='bg-teal-200 py-3 px-4 rounded-lg'
+        onPress={() => console.log('Pressed Pressable')}
+      >
+        <Text className='text-red-500 font-bold'>Pressable</Text>
+      </Pressable>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
